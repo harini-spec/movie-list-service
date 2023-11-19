@@ -10,5 +10,6 @@ import io.MovieListApp.model.MovieData;
 public interface SearchRepository {
 	
 	List<MovieData> findByName(String name);
+	List<MovieData> findByLanguage(String language);
 
 }

@@ -59,4 +59,9 @@ public class MovieService {
 		return ResponseEntity.ok(response);
 	}
 
+	public int countMoviesByLanguage(String language){
+		List<MovieData> movieData = searchRepository.findByLanguage(language);
+		return movieData.size();
+	}
+
 }

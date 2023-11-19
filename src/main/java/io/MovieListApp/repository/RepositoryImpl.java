@@ -13,14 +13,25 @@ public class RepositoryImpl implements SearchRepository{
 	
 	@Autowired
 	private MovieRepository movieRepository;
-
+	
 	@Override
 	public List<MovieData> findByName(String name) {
-		
 		List<MovieData> movies = movieRepository.findAll();
 		List<MovieData> foundMovies = new ArrayList<>();
 		for(int i=0;i<movies.size();i++) {
 			if(name.toLowerCase().equals(movies.get(i).getName().toLowerCase())) {
+				foundMovies.add(movies.get(i));
+			}
+		}
+		return foundMovies;
+	}
+
+	@Override
+	public List<MovieData> findByLanguage(String language){
+		List<MovieData> movies = movieRepository.findAll();
+		List<MovieData> foundMovies = new ArrayList<>();
+		for(int i=0;i<movies.size();i++) {
+			if(language.toLowerCase().equals(movies.get(i).getLanguage().toLowerCase())) {
 				foundMovies.add(movies.get(i));
 			}
 		}

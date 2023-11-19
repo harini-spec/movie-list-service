@@ -56,5 +56,10 @@ public class MovieController {
 	public ResponseEntity<Map<String, Boolean>> deleteMovie(@PathVariable String id){
 		return movieService.deleteMovie(id);
 	}
+
+	@GetMapping("/movies/count/{language}")
+	public int countMoviesByLanguage(@PathVariable String language){
+		return movieService.countMoviesByLanguage(language);
+	}
 	
 }

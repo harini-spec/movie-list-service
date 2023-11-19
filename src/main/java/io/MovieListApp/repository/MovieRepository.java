@@ -8,7 +8,5 @@ import io.MovieListApp.model.MovieData;
 
 @Repository
 public interface MovieRepository extends MongoRepository<MovieData, String>{
-	
-	List<MovieData> findByName(String name);
-	
+		
 }
