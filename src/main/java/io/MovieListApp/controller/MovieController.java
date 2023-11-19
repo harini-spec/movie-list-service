@@ -2,8 +2,8 @@ package io.MovieListApp.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,7 +21,7 @@ import io.MovieListApp.service.MovieService;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin
+@CrossOrigin(origins = {"http://localhost:3000", "https://movie-list-application-two.vercel.app/"})
 public class MovieController {
 	
 	@Autowired
@@ -37,7 +37,12 @@ public class MovieController {
 		movieService.addMovie(movie);
 	}
 	
-	@GetMapping("/movies/{name}")
+	@GetMapping("/movies/{id}")
+	public Optional<MovieData> getMovieById(@PathVariable String id) {
+		return movieService.getMovieById(id);
+	}
+	
+	@GetMapping("/movies/search/{name}")
 	public List<MovieData> searchMovie(@PathVariable String name){
 		return movieService.getMovieByName(name);
 	}

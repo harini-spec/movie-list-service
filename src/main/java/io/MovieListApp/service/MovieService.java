@@ -3,6 +3,8 @@ package io.MovieListApp.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,10 @@ public class MovieService {
 	
 	public List<MovieData> getMovieByName(String movie) {
 		return searchRepository.findByName(movie);
+	}
+
+	public Optional<MovieData> getMovieById(String id) {
+		return movieRepository.findById(id);
 	}
 	
 	public ResponseEntity<MovieData> updateMovieDetails(String id, MovieData newMovieData){
