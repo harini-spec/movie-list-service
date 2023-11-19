@@ -21,7 +21,7 @@ import io.MovieListApp.service.MovieService;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "https://movie-list-application-two.vercel.app/")
+@CrossOrigin
 public class MovieController {
 	
 	@Autowired
@@ -43,12 +43,12 @@ public class MovieController {
 	}
 	
 	@PutMapping("/movies/{id}")
-	public ResponseEntity<MovieData> updateMovie(@PathVariable ObjectId id, @RequestBody MovieData newMovieData){
+	public ResponseEntity<MovieData> updateMovie(@PathVariable String id, @RequestBody MovieData newMovieData){
 		return movieService.updateMovieDetails(id, newMovieData);
 	}
 	
 	@DeleteMapping("/movies/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteMovie(@PathVariable ObjectId id){
+	public ResponseEntity<Map<String, Boolean>> deleteMovie(@PathVariable String id){
 		return movieService.deleteMovie(id);
 	}
 	

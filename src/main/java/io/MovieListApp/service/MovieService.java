@@ -3,9 +3,6 @@ package io.MovieListApp.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -36,7 +33,7 @@ public class MovieService {
 		return searchRepository.findByName(movie);
 	}
 	
-	public ResponseEntity<MovieData> updateMovieDetails(ObjectId id, MovieData newMovieData){
+	public ResponseEntity<MovieData> updateMovieDetails(String id, MovieData newMovieData){
 		MovieData movieData = movieRepository.findById(id).orElseThrow(() -> new ResourceNotFound("Movie data not found"));
 		movieData.setName(newMovieData.getName());
 		movieData.setDirector(newMovieData.getDirector());
@@ -48,7 +45,7 @@ public class MovieService {
 		
 	}
 	
-	public ResponseEntity<Map<String, Boolean>> deleteMovie(ObjectId id){
+	public ResponseEntity<Map<String, Boolean>> deleteMovie(String id){
 		MovieData movieData = movieRepository.findById(id).orElseThrow(() -> new ResourceNotFound("Movie data not found"));
 		movieRepository.delete(movieData);
 		Map<String, Boolean> response = new HashMap<>();

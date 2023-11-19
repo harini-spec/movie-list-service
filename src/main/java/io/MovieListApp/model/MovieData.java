@@ -14,17 +14,17 @@ import lombok.NoArgsConstructor;
 public class MovieData {
 	
 	@Id
-	private ObjectId id;
+	private String id;
 	private String name;
 	private String director;
 	private String release_year;
 	private String language;
-	private int rating;
+	private float rating;
 	
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -51,10 +51,10 @@ public class MovieData {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public int getRating() {
+	public float getRating() {
 		return rating;
 	}
-	public void setRating(int rating) {
+	public void setRating(float rating) {
 		this.rating = rating;
 	}
 }
