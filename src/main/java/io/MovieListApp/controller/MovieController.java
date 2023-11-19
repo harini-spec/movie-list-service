@@ -21,7 +21,7 @@ import io.MovieListApp.service.MovieService;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "https://movie-list-application-two.vercel.app/")
 public class MovieController {
 	
 	@Autowired
