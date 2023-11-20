@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import io.MovieListApp.exception.ResourceNotFound;
 import io.MovieListApp.model.MovieData;
 import io.MovieListApp.repository.MovieRepository;
@@ -48,7 +46,6 @@ public class MovieService {
 		movieData.setRating(newMovieData.getRating());
 		MovieData updatedMovieData = movieRepository.save(movieData);
 		return ResponseEntity.ok(updatedMovieData);
-		
 	}
 	
 	public ResponseEntity<Map<String, Boolean>> deleteMovie(String id){

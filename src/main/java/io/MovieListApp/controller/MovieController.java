@@ -43,7 +43,7 @@ public class MovieController {
 	}
 	
 	@GetMapping("/movies/search/{name}")
-	public List<MovieData> searchMovie(@PathVariable String name){
+	public List<MovieData> searchMovieByName(@PathVariable String name){
 		return movieService.getMovieByName(name);
 	}
 	
